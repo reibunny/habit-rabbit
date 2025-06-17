@@ -45,6 +45,38 @@ router.put("/:id", async (req, res) => {
     }
 });
 
+// MARK AS COMPLETE & XP award
+router.post("/:id/complete", async (req, res) => {
+    try {
+        const habit = await Habit.findOne({
+            _id: req.params.id,
+            userId: req.user.userId,
+        });
+        if (!habit) return res.status(404).json({ message: "Habit not found" });
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        // Check if already completed today
+        const completedToday = habit.completions.some(
+            (c) => c.date.getTime() === today.getTime()
+        );
+        if (completedToday)
+            return res.status(400).json({ message: "Already completed today" });
+
+        habit.completions.push({ date: today });
+        habit.streak += 1;
+        if (habit.streak > habit.longestStreak)
+            habit.longestStreak = habit.streak;
+
+        await habit.save();
+
+        res.json({ message: "Habit completed", habit });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 // DELETE
 router.delete("/:id", async (req, res) => {
     try {
