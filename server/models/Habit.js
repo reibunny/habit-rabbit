@@ -2,16 +2,20 @@ import { Schema, model } from "mongoose";
 
 const habitSchema = new Schema({
     userId: Schema.Types.ObjectId,
-    title: String,
-    discipline: String,
-    frequency: String,
-    isActive: Boolean,
-    streak: Number,
+    title: { type: String, default: "Meditate for 10 mins" },
+    discipline: { type: String, default: "Mind" },
+    frequency: { type: String, default: "daily" },
+    isActive: { type: Boolean, default: true },
+    streak: { type: Number, default: 0 },
     longestStreak: Number,
-    difficulty: String,
+    difficulty: { type: String, default: "easy" },
     createdAt: {
         type: Date,
         default: Date.now,
+    },
+    lastCompleted: {
+        type: Date,
+        default: null,
     },
 });
 

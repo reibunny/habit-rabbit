@@ -1,5 +1,8 @@
 import { Router } from "express";
 import Habit from "../models/Habit.js";
+
+import { completeHabitHandler } from "../controllers/habitController.js";
+
 const router = Router();
 
 // CREATE
@@ -46,7 +49,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // MARK AS COMPLETE & XP award
-router.post("/:id/complete", async (req, res) => {
+router.post("/:id/complete", completeHabitHandler, async (req, res) => {
     try {
         const habit = await Habit.findOne({
             _id: req.params.id,
