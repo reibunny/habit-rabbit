@@ -9,7 +9,7 @@ const difficultyAward = {
     hard: 50,
 };
 
-const levelXP = (level) => 100 * level ** 2 + 100 * level;
+const levelXP = (level) => 20 * level ** 2 + 80 * level;
 
 const calculateLevelFromXP = (xp) => {
     let level = 1;
@@ -37,14 +37,17 @@ const completeHabit = async (userId, habitId) => {
 
     if (!habit || !user) throw new Error("Habit or User not found");
 
-    habit.streak += 1;
     habit.lastCompleted = new Date();
     await habit.save();
 
     const xpGained = getXPForHabit(habit);
-    user.xp += xpGained;
-    user.level = calculateLevelFromXP(user.xp);
+
+    user.totalxp = (user.totalxp || 0) + xpGained;
+    user.level = calculateLevelFromXP(user.totalxp);
+    user.xp = user.totalxp - levelXP(user.level);
     await user.save();
+
+    habit.streak += 1;
 
     return { xpGained, newLevel: user.level };
 };
