@@ -3,14 +3,18 @@ import { connect } from "mongoose";
 import cors from "cors";
 
 import habitsRouter from "./routes/habits.js";
+import authRoutes from "./routes/auth.js";
+
 import config from "./config.js";
 
 const app = express();
 
+app.use(express.json());
+
 app.use(cors());
-app.use(json());
 
 app.use("/api/habits", habitsRouter);
+app.use("/api/auth", authRoutes);
 
 connect(config.mongoURI)
     .then(() => {
