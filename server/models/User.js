@@ -2,13 +2,13 @@ import { Schema, model } from "mongoose";
 import bcrypt from "bcrypt";
 
 const userSchema = new Schema({
-    username: { type: String, required: true, unique: true },
-    email: { type: String, required: true, unique: true },
+    username: { type: String, unique: true, required: true },
+    email: { type: String, unique: true, required: true },
     password: { type: String, required: true },
     level: { type: Number, default: 0 },
     xp: { type: Number, default: 0 },
     totalxp: { type: Number, default: 0 },
-    avatar: String,
+    avatar: { type: String, default: "#ff69b4" },
 });
 
 userSchema.pre("save", async function (next) {
