@@ -5,6 +5,12 @@ import User from "../models/User.js";
 
 const router = express.Router();
 
+import { requireAuth } from "../middleware/auth.js";
+
+router.get("/me", requireAuth, (req, res) => {
+    res.json(req.user);
+});
+
 router.post("/register", async (req, res) => {
     const { username, email, password } = req.body;
     try {
