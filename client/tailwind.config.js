@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-    darkMode: "media",
     theme: {
         extend: {
             colors: {
@@ -11,6 +10,12 @@ export default {
                 background: {
                     300: "var(--background-300)",
                 },
+                muted: {
+                    text: "var(--muted-text)",
+                    300: "var(--muted-300)",
+                    500: "var(--muted-500)",
+                },
+                border: "var(--border-color)",
                 primary: {
                     300: "var(--primary-300)",
                     500: "var(--primary-500)",
@@ -27,28 +32,45 @@ export default {
                     300: "var(--error-300)",
                     500: "var(--error-500)",
                 },
+                success: {
+                    300: "var(--success-300)",
+                    500: "var(--success-500)",
+                },
                 info: {
                     300: "var(--info-300)",
                     500: "var(--info-500)",
                 },
-                muted: {
-                    300: "var(--muted-300)",
-                    500: "var(--muted-500)",
-                    text: "var(--muted-text)",
-                    darker: "var(--muted-darker)",
+                warning: {
+                    300: "var(--warning-300)",
+                    500: "var(--warning-500)",
                 },
-                border: {
-                    DEFAULT: "var(--border-color)",
-                },
-                shadow: {
-                    soft: "var(--soft-shadow)",
-                },
+            },
+            boxShadow: {
+                primary: "0 4px 20px var(--soft-shadow)",
+                "primary-lg": "0 8px 40px var(--soft-shadow)",
             },
             backgroundImage: {
                 "gradient-primary": "var(--gradient-primary)",
                 "gradient-secondary": "var(--gradient-secondary)",
                 "gradient-accent": "var(--gradient-accent)",
-                "gradient-success": "var(--gradient-success)",
+                "gradient-text-primary": "var(--gradient-text-primary)",
+                "gradient-text-secondary": "var(--gradient-text-secondary)",
+                "gradient-text-accent": "var(--gradient-text-accent)",
+            },
+            animation: {
+                "gradient-shift": "gradient-shift 6s ease infinite",
+                "slide-in-right": "slideInRight 1s ease-in-out",
+            },
+            keyframes: {
+                "gradient-shift": {
+                    "0%": { "background-position": "0% 50%" },
+                    "50%": { "background-position": "100% 50%" },
+                    "100%": { "background-position": "0% 50%" },
+                },
+                slideInRight: {
+                    "0%": { transform: "translateX(-100%)" },
+                    "100%": { transform: "translateX(0%)" },
+                },
             },
         },
     },
