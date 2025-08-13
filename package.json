@@ -1,0 +1,22 @@
+{
+    "name": "habit-rabbit",
+    "version": "1.0.0",
+    "description": "",
+    "homepage": "https://github.com/reibunny/habit-rabbit#readme",
+    "bugs": {
+        "url": "https://github.com/reibunny/habit-rabbit/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/reibunny/habit-rabbit.git"
+    },
+    "license": "ISC",
+    "author": "Alyson Rezaire",
+    "type": "commonjs",
+    "main": "",
+    "scripts": {
+        "dev": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+        "start:frontend": "cd client && npm run dev",
+        "start:backend": "cd server && npm start"
+    }
+}
