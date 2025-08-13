@@ -4,6 +4,7 @@ import cors from "cors";
 
 import habitsRouter from "./routes/habits.js";
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
 
 import config from "./config.js";
 
@@ -15,6 +16,7 @@ app.use(cors());
 
 app.use("/api/habits", habitsRouter);
 app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
 
 connect(config.mongoURI)
     .then(() => {
