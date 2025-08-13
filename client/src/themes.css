@@ -1,0 +1,710 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --text-300: #2d1b20;
+        --background-300: #fefcfd;
+        --muted-text: #8b6b75;
+        --muted-300: #f7f0f3;
+        --muted-500: #e4d1d8;
+        --border-color: #f0e1e7;
+        --soft-shadow: rgba(219, 112, 147, 0.08);
+
+        --error-300: #ff6b8a;
+        --error-500: #e63956;
+        --success-300: #7dd3a0;
+        --success-500: #4caf71;
+        --info-300: #87ceeb;
+        --info-500: #4a9eff;
+        --warning-300: #ffd700;
+        --warning-500: #ffb347;
+
+        /* Cotton Candy Pink - Default Theme */
+        --primary-300: #ffb3d9;
+        --primary-500: #ff8cc8;
+        --secondary-300: #ffe0f0;
+        --secondary-500: #ffcce5;
+        --accent-300: #fff5fa;
+        --accent-500: #ffebf4;
+
+        --gradient-text-primary: linear-gradient(
+            135deg,
+            #ffb3d9,
+            #ffc7e8,
+            #e8b3ff
+        );
+        --gradient-text-secondary: linear-gradient(
+            135deg,
+            #ffe0f0,
+            #f0b3ff,
+            #b3e5ff
+        );
+        --gradient-text-accent: linear-gradient(
+            135deg,
+            #fff5fa,
+            #ffe0f0,
+            #f0e8ff
+        );
+
+        --gradient-primary: linear-gradient(135deg, #ffb3d9, #ffc7e8, #e8b3ff);
+        --gradient-secondary: linear-gradient(
+            135deg,
+            #ffe0f0,
+            #f0b3ff,
+            #b3e5ff
+        );
+        --gradient-accent: linear-gradient(135deg, #fff5fa, #ffe0f0, #f0e8ff);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --text-300: #f5e8f0;
+            --background-300: #1a0f14;
+            --muted-text: #c4a8b5;
+            --muted-300: #2d1a24;
+            --muted-500: #3d2430;
+            --border-color: #4a2e3c;
+            --soft-shadow: rgba(255, 179, 217, 0.12);
+
+            --error-300: #ff8fa3;
+            --error-500: #ff6b8a;
+            --success-300: #90e6b5;
+            --success-500: #7dd3a0;
+            --info-300: #b3d9f7;
+            --info-500: #87ceeb;
+            --warning-300: #ffe066;
+            --warning-500: #ffd700;
+
+            /* Cotton Candy Pink - Dark Mode */
+            --primary-300: #ffcce5;
+            --primary-500: #ffb3d9;
+            --secondary-300: #ffebf4;
+            --secondary-500: #ffe0f0;
+            --accent-300: #fff9fc;
+            --accent-500: #fff5fa;
+
+            --gradient-text-primary: linear-gradient(
+                135deg,
+                #ffcce5,
+                #e6b3ff,
+                #b3d9ff
+            );
+            --gradient-text-secondary: linear-gradient(
+                135deg,
+                #ffebf4,
+                #e6ccff,
+                #ccf0ff
+            );
+            --gradient-text-accent: linear-gradient(
+                135deg,
+                #fff9fc,
+                #ffebf4,
+                #f5f0ff
+            );
+
+            --gradient-primary: linear-gradient(
+                135deg,
+                #ffcce5,
+                #e6b3ff,
+                #b3d9ff
+            );
+            --gradient-secondary: linear-gradient(
+                135deg,
+                #ffebf4,
+                #e6ccff,
+                #ccf0ff
+            );
+            --gradient-accent: linear-gradient(
+                135deg,
+                #fff9fc,
+                #ffebf4,
+                #f5f0ff
+            );
+        }
+    }
+
+    /* Brick Rose Theme */
+    [data-theme="brick-rose"] {
+        --primary-300: #e8a3a3;
+        --primary-500: #d98c8c;
+        --secondary-300: #f5d1d1;
+        --secondary-500: #f0b8b8;
+        --accent-300: #faf0f0;
+        --accent-500: #f7e6e6;
+
+        --gradient-text-primary: linear-gradient(
+            135deg,
+            #e8a3a3,
+            #ffb3cc,
+            #d9a3e8
+        );
+        --gradient-text-secondary: linear-gradient(
+            135deg,
+            #f5d1d1,
+            #e8a3a3,
+            #f0b8b8
+        );
+        --gradient-text-accent: linear-gradient(
+            135deg,
+            #faf0f0,
+            #f5d1d1,
+            #f0e8ff
+        );
+
+        --gradient-primary: linear-gradient(135deg, #e8a3a3, #ffb3cc, #d9a3e8);
+        --gradient-secondary: linear-gradient(
+            135deg,
+            #f5d1d1,
+            #e8a3a3,
+            #f0b8b8
+        );
+        --gradient-accent: linear-gradient(135deg, #faf0f0, #f5d1d1, #f0e8ff);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        [data-theme="brick-rose"] {
+            --primary-300: #f0b8b8;
+            --primary-500: #e8a3a3;
+            --secondary-300: #f7e6e6;
+            --secondary-500: #f5d1d1;
+            --accent-300: #fcf5f5;
+            --accent-500: #faf0f0;
+
+            --gradient-text-primary: linear-gradient(
+                135deg,
+                #d18c8c,
+                #e699b3,
+                #b38cd1
+            );
+            --gradient-text-secondary: linear-gradient(
+                135deg,
+                #e6b8b8,
+                #d18c8c,
+                #d9a3a3
+            );
+            --gradient-text-accent: linear-gradient(
+                135deg,
+                #f0d9d9,
+                #e6b8b8,
+                #e6d9f0
+            );
+
+            --gradient-primary: linear-gradient(
+                135deg,
+                #d18c8c,
+                #e699b3,
+                #b38cd1
+            );
+            --gradient-secondary: linear-gradient(
+                135deg,
+                #e6b8b8,
+                #d18c8c,
+                #d9a3a3
+            );
+            --gradient-accent: linear-gradient(
+                135deg,
+                #f0d9d9,
+                #e6b8b8,
+                #e6d9f0
+            );
+        }
+    }
+
+    /* Peach Sorbet Theme */
+    [data-theme="peach-sorbet"] {
+        --primary-300: #ffcc99;
+        --primary-500: #ffb366;
+        --secondary-300: #ffe0c2;
+        --secondary-500: #ffd1a3;
+        --accent-300: #fff7f0;
+        --accent-500: #ffede6;
+
+        --gradient-text-primary: linear-gradient(
+            135deg,
+            #ffcc99,
+            #ffb3d4,
+            #b3e6ff
+        );
+        --gradient-text-secondary: linear-gradient(
+            135deg,
+            #ffe0c2,
+            #ffcc99,
+            #ffd1a3
+        );
+        --gradient-text-accent: linear-gradient(
+            135deg,
+            #fff7f0,
+            #ffe0c2,
+            #f0f7ff
+        );
+
+        --gradient-primary: linear-gradient(135deg, #ffcc99, #ffb3d4, #b3e6ff);
+        --gradient-secondary: linear-gradient(
+            135deg,
+            #ffe0c2,
+            #ffcc99,
+            #ffd1a3
+        );
+        --gradient-accent: linear-gradient(135deg, #fff7f0, #ffe0c2, #f0f7ff);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        [data-theme="peach-sorbet"] {
+            --primary-300: #ffd1a3;
+            --primary-500: #ffcc99;
+            --secondary-300: #ffede6;
+            --secondary-500: #ffe0c2;
+            --accent-300: #fffcf7;
+            --accent-500: #fff7f0;
+
+            --gradient-text-primary: linear-gradient(
+                135deg,
+                #e6b37a,
+                #e699cc,
+                #7accf0
+            );
+            --gradient-text-secondary: linear-gradient(
+                135deg,
+                #f0c299,
+                #e6b37a,
+                #e6c2a3
+            );
+            --gradient-text-accent: linear-gradient(
+                135deg,
+                #f7e6d9,
+                #f0c299,
+                #d9e6f7
+            );
+
+            --gradient-primary: linear-gradient(
+                135deg,
+                #e6b37a,
+                #e699cc,
+                #7accf0
+            );
+            --gradient-secondary: linear-gradient(
+                135deg,
+                #f0c299,
+                #e6b37a,
+                #e6c2a3
+            );
+            --gradient-accent: linear-gradient(
+                135deg,
+                #f7e6d9,
+                #f0c299,
+                #d9e6f7
+            );
+        }
+    }
+
+    /* Sage Meadow Theme */
+    [data-theme="sage-meadow"] {
+        --primary-300: #b3d9b3;
+        --primary-500: #99cc99;
+        --secondary-300: #d1f0d1;
+        --secondary-500: #c2e6c2;
+        --accent-300: #f0faf0;
+        --accent-500: #e6f7e6;
+
+        --gradient-text-primary: linear-gradient(
+            135deg,
+            #b3d9b3,
+            #d9b3ff,
+            #ffb3d9
+        );
+        --gradient-text-secondary: linear-gradient(
+            135deg,
+            #d1f0d1,
+            #b3d9b3,
+            #c2e6c2
+        );
+        --gradient-text-accent: linear-gradient(
+            135deg,
+            #f0faf0,
+            #d1f0d1,
+            #faf0ff
+        );
+
+        --gradient-primary: linear-gradient(135deg, #b3d9b3, #d9b3ff, #ffb3d9);
+        --gradient-secondary: linear-gradient(
+            135deg,
+            #d1f0d1,
+            #b3d9b3,
+            #c2e6c2
+        );
+        --gradient-accent: linear-gradient(135deg, #f0faf0, #d1f0d1, #faf0ff);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        [data-theme="sage-meadow"] {
+            --primary-300: #c2e6c2;
+            --primary-500: #b3d9b3;
+            --secondary-300: #e6f7e6;
+            --secondary-500: #d1f0d1;
+            --accent-300: #f7fcf7;
+            --accent-500: #f0faf0;
+
+            --gradient-text-primary: linear-gradient(
+                135deg,
+                #8cbf8c,
+                #b38ce6,
+                #e68cbf
+            );
+            --gradient-text-secondary: linear-gradient(
+                135deg,
+                #a3d9a3,
+                #8cbf8c,
+                #99cc99
+            );
+            --gradient-text-accent: linear-gradient(
+                135deg,
+                #d9f0d9,
+                #a3d9a3,
+                #f0d9f0
+            );
+
+            --gradient-primary: linear-gradient(
+                135deg,
+                #8cbf8c,
+                #b38ce6,
+                #e68cbf
+            );
+            --gradient-secondary: linear-gradient(
+                135deg,
+                #a3d9a3,
+                #8cbf8c,
+                #99cc99
+            );
+            --gradient-accent: linear-gradient(
+                135deg,
+                #d9f0d9,
+                #a3d9a3,
+                #f0d9f0
+            );
+        }
+    }
+
+    /* Lavender Dreams Theme */
+    [data-theme="lavender-dreams"] {
+        --primary-300: #d9b3ff;
+        --primary-500: #cc99ff;
+        --secondary-300: #f0d9ff;
+        --secondary-500: #e6ccff;
+        --accent-300: #faf5ff;
+        --accent-500: #f5ebff;
+
+        --gradient-text-primary: linear-gradient(
+            135deg,
+            #d9b3ff,
+            #ffb3d9,
+            #b3f0ff
+        );
+        --gradient-text-secondary: linear-gradient(
+            135deg,
+            #f0d9ff,
+            #d9b3ff,
+            #e6ccff
+        );
+        --gradient-text-accent: linear-gradient(
+            135deg,
+            #faf5ff,
+            #f0d9ff,
+            #f0faff
+        );
+
+        --gradient-primary: linear-gradient(135deg, #d9b3ff, #ffb3d9, #b3f0ff);
+        --gradient-secondary: linear-gradient(
+            135deg,
+            #f0d9ff,
+            #d9b3ff,
+            #e6ccff
+        );
+        --gradient-accent: linear-gradient(135deg, #faf5ff, #f0d9ff, #f0faff);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        [data-theme="lavender-dreams"] {
+            --primary-300: #e6ccff;
+            --primary-500: #d9b3ff;
+            --secondary-300: #f5ebff;
+            --secondary-500: #f0d9ff;
+            --accent-300: #fcf9ff;
+            --accent-500: #faf5ff;
+
+            --gradient-text-primary: linear-gradient(
+                135deg,
+                #b38ce6,
+                #e68cbf,
+                #8ce6f0
+            );
+            --gradient-text-secondary: linear-gradient(
+                135deg,
+                #d9b3f0,
+                #b38ce6,
+                #ccb3e6
+            );
+            --gradient-text-accent: linear-gradient(
+                135deg,
+                #f0e6f7,
+                #d9b3f0,
+                #e6f0f7
+            );
+
+            --gradient-primary: linear-gradient(
+                135deg,
+                #b38ce6,
+                #e68cbf,
+                #8ce6f0
+            );
+            --gradient-secondary: linear-gradient(
+                135deg,
+                #d9b3f0,
+                #b38ce6,
+                #ccb3e6
+            );
+            --gradient-accent: linear-gradient(
+                135deg,
+                #f0e6f7,
+                #d9b3f0,
+                #e6f0f7
+            );
+        }
+    }
+
+    /* Sky Blush Theme */
+    [data-theme="sky-blush"] {
+        --primary-300: #b3e6ff;
+        --primary-500: #99ddff;
+        --secondary-300: #d9f5ff;
+        --secondary-500: #ccf0ff;
+        --accent-300: #f0faff;
+        --accent-500: #e6f7ff;
+
+        --gradient-text-primary: linear-gradient(
+            135deg,
+            #b3e6ff,
+            #ffb3e6,
+            #d9ffb3
+        );
+        --gradient-text-secondary: linear-gradient(
+            135deg,
+            #d9f5ff,
+            #b3e6ff,
+            #ccf0ff
+        );
+        --gradient-text-accent: linear-gradient(
+            135deg,
+            #f0faff,
+            #d9f5ff,
+            #fff5f0
+        );
+
+        --gradient-primary: linear-gradient(135deg, #b3e6ff, #ffb3e6, #d9ffb3);
+        --gradient-secondary: linear-gradient(
+            135deg,
+            #d9f5ff,
+            #b3e6ff,
+            #ccf0ff
+        );
+        --gradient-accent: linear-gradient(135deg, #f0faff, #d9f5ff, #fff5f0);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        [data-theme="sky-blush"] {
+            --primary-300: #ccf0ff;
+            --primary-500: #b3e6ff;
+            --secondary-300: #e6f7ff;
+            --secondary-500: #d9f5ff;
+            --accent-300: #f7fcff;
+            --accent-500: #f0faff;
+
+            --gradient-text-primary: linear-gradient(
+                135deg,
+                #7accf0,
+                #f07acc,
+                #b3f07a
+            );
+            --gradient-text-secondary: linear-gradient(
+                135deg,
+                #b3e6f0,
+                #7accf0,
+                #99e6f0
+            );
+            --gradient-text-accent: linear-gradient(
+                135deg,
+                #e6f0f7,
+                #b3e6f0,
+                #f7f0e6
+            );
+
+            --gradient-primary: linear-gradient(
+                135deg,
+                #7accf0,
+                #f07acc,
+                #b3f07a
+            );
+            --gradient-secondary: linear-gradient(
+                135deg,
+                #b3e6f0,
+                #7accf0,
+                #99e6f0
+            );
+            --gradient-accent: linear-gradient(
+                135deg,
+                #e6f0f7,
+                #b3e6f0,
+                #f7f0e6
+            );
+        }
+    }
+
+    /* Cherry Blossom Theme */
+    [data-theme="cherry-blossom"] {
+        --primary-300: #ffb3cc;
+        --primary-500: #ff99c2;
+        --secondary-300: #ffd9e6;
+        --secondary-500: #ffccdd;
+        --accent-300: #fff0f5;
+        --accent-500: #ffe6f0;
+
+        --gradient-text-primary: linear-gradient(
+            135deg,
+            #ffb3cc,
+            #ccb3ff,
+            #b3ffdd
+        );
+        --gradient-text-secondary: linear-gradient(
+            135deg,
+            #ffd9e6,
+            #ffb3cc,
+            #ffccdd
+        );
+        --gradient-text-accent: linear-gradient(
+            135deg,
+            #fff0f5,
+            #ffd9e6,
+            #f0f5ff
+        );
+
+        --gradient-primary: linear-gradient(135deg, #ffb3cc, #ccb3ff, #b3ffdd);
+        --gradient-secondary: linear-gradient(
+            135deg,
+            #ffd9e6,
+            #ffb3cc,
+            #ffccdd
+        );
+        --gradient-accent: linear-gradient(135deg, #fff0f5, #ffd9e6, #f0f5ff);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        [data-theme="cherry-blossom"] {
+            --primary-300: #ffccdd;
+            --primary-500: #ffb3cc;
+            --secondary-300: #ffe6f0;
+            --secondary-500: #ffd9e6;
+            --accent-300: #fff7fa;
+            --accent-500: #fff0f5;
+
+            --gradient-text-primary: linear-gradient(
+                135deg,
+                #e699b3,
+                #9999e6,
+                #99e6cc
+            );
+            --gradient-text-secondary: linear-gradient(
+                135deg,
+                #f0b3cc,
+                #e699b3,
+                #e6b3c2
+            );
+            --gradient-text-accent: linear-gradient(
+                135deg,
+                #f7d9e6,
+                #f0b3cc,
+                #d9e6f7
+            );
+
+            --gradient-primary: linear-gradient(
+                135deg,
+                #e699b3,
+                #9999e6,
+                #99e6cc
+            );
+            --gradient-secondary: linear-gradient(
+                135deg,
+                #f0b3cc,
+                #e699b3,
+                #e6b3c2
+            );
+            --gradient-accent: linear-gradient(
+                135deg,
+                #f7d9e6,
+                #f0b3cc,
+                #d9e6f7
+            );
+        }
+    }
+
+    /* Utility classes for gradients */
+    .gradient-text-primary {
+        background: var(--gradient-text-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .gradient-text-secondary {
+        background: var(--gradient-text-secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .gradient-text-accent {
+        background: var(--gradient-text-accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .gradient-bg-primary {
+        background: var(--gradient-primary);
+    }
+
+    .gradient-bg-secondary {
+        background: var(--gradient-secondary);
+    }
+
+    .gradient-bg-accent {
+        background: var(--gradient-accent);
+    }
+
+    /* Enhanced shadow utilities */
+    .shadow-primary {
+        box-shadow: 0 4px 20px var(--soft-shadow);
+    }
+
+    .shadow-primary-lg {
+        box-shadow: 0 8px 40px var(--soft-shadow);
+    }
+
+    /* Animated gradient backgrounds */
+    .gradient-animated {
+        background-size: 200% 200%;
+        animation: gradient-shift 6s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}

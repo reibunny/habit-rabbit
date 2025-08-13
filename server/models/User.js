@@ -1,6 +1,10 @@
 import { Schema, model } from "mongoose";
 import bcrypt from "bcrypt";
 
+import { THEME_OPTIONS } from "../../client/src/constants/themes.js";
+
+const validThemes = THEME_OPTIONS.map((theme) => theme.value);
+
 const userSchema = new Schema({
     username: { type: String, unique: true, required: true },
     email: { type: String, unique: true, required: true },
@@ -8,7 +12,11 @@ const userSchema = new Schema({
     level: { type: Number, default: 0 },
     xp: { type: Number, default: 0 },
     totalxp: { type: Number, default: 0 },
-    avatar: { type: String, default: "#ff69b4" },
+    theme: {
+        type: String,
+        default: "cotton-candy",
+        enum: validThemes,
+    },
 });
 
 userSchema.pre("save", async function (next) {
