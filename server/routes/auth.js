@@ -13,9 +13,16 @@ router.get("/me", requireAuth, (req, res) => {
 
 router.post("/register", async (req, res) => {
     const { username, email, password } = req.body;
+
+    if (password.length < 6) {
+        return res
+            .status(400)
+            .json({ error: "Password must be at least 6 characters" });
+    }
+
     try {
         const user = await User.create({ username, email, password });
-        res.status(201).json({ message: "User registered", userId: user._id });
+        res.status(201).json({ message: "User registered", _id: user._id });
     } catch (err) {
         res.status(400).json({ error: err.message });
     }
@@ -31,13 +38,17 @@ router.post("/login", async (req, res) => {
         if (!isMatch)
             return res.status(401).json({ error: "Invalid credentials" });
 
-        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
             expiresIn: "7d",
         });
-        res.json({ token, userId: user._id });
+        res.json({ token, _id: user._id });
     } catch (err) {
-        res.status(500).json({ error: err });
+        res.status(500).json({ error: err.message });
     }
+});
+
+router.post("/logout", requireAuth, (req, res) => {
+    res.json({ message: "Logout successful" });
 });
 
 export default router;
