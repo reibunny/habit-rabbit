@@ -1,4 +1,4 @@
-import "./colors.css";
+import "./themes.css";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Dashboard from "./pages/Dashboard.jsx";
