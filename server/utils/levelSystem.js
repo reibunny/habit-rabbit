@@ -45,9 +45,9 @@ const completeHabit = async (userId, habitId) => {
     user.totalxp = (user.totalxp || 0) + xpGained;
     user.level = calculateLevelFromXP(user.totalxp);
     user.xp = user.totalxp - levelXP(user.level);
-    await user.save();
-
     habit.streak += 1;
+
+    await user.save();
 
     return { xpGained, newLevel: user.level };
 };
@@ -69,14 +69,19 @@ cron.schedule("0 0 * * *", async () => {
 
 const getUserProgress = async (userId) => {
     const user = await User.findById(userId);
-    const level = calculateLevelFromXP(user.xp);
-    const progress =
-        ((user.xp - levelXP(level)) / (levelXP(level + 1) - levelXP(level))) *
-        100;
+    const level = calculateLevelFromXP(user.totalxp);
+
+    const toNextLevel = xpToNextLevel(user.totalxp);
+
+    const currentLevelXP = levelXP(level);
+    const nextLevelXP = levelXP(level + 1);
+    const progressInLevel = user.totalxp - currentLevelXP;
+    const progress = (progressInLevel / (nextLevelXP - currentLevelXP)) * 100;
+
     return {
         level,
-        xp: user.xp,
-        toNextLevel: xpToNextLevel(user.xp),
+        currentXP: progressInLevel,
+        toNextLevel,
         progressPercent: progress.toFixed(2),
     };
 };
